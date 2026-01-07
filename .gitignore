@@ -142,3 +142,6 @@ cython_debug/
 tests/config.toml
 local/
 config.toml
+
+# Local tests
+test.py

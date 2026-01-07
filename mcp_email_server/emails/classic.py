@@ -549,10 +549,8 @@ class EmailClient:
             msg["Subject"] = subject
 
         # Handle sender name with special characters
-        if any(ord(c) > 127 for c in self.sender):
-            msg["From"] = Header(self.sender, "utf-8")
-        else:
-            msg["From"] = self.sender
+        name, addr = email.utils.parseaddr(self.sender)
+        msg["From"] = email.utils.formataddr((name, addr))
 
         msg["To"] = ", ".join(recipients)
 
