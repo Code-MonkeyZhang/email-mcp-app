@@ -167,6 +167,15 @@ class EmailClient:
 
             # Login and select inbox
             await imap.login(self.email_server.user_name, self.email_server.password)
+            try:
+                await imap.id(
+                    name="mcp-email-server", 
+                    version="1.0.0", 
+                    vendor="gemini-agent", 
+                    **{"support-url": "https://github.com/Code-MonkeyZhang/mcp-email-server", "os": "darwin", "os-version": "14.0"}
+                )
+            except Exception as e:
+                logger.warning(f"IMAP ID command failed: {e!s}")
             await imap.select(mailbox)
             search_criteria = self._build_search_criteria(
                 before, since, subject, from_address=from_address, to_address=to_address
@@ -203,10 +212,20 @@ class EmailClient:
             # Login and select inbox
             await imap.login(self.email_server.user_name, self.email_server.password)
             try:
-                await imap.id(name="mcp-email-server", version="1.0.0")
+                await imap.id(
+                    name="mcp-email-server", 
+                    version="1.0.0", 
+                    vendor="gemini-agent", 
+                    **{"support-url": "https://github.com/Code-MonkeyZhang/mcp-email-server", "os": "darwin", "os-version": "14.0"}
+                )
             except Exception as e:
                 logger.warning(f"IMAP ID command failed: {e!s}")
-            await imap.select(mailbox)
+            
+            select_res = await imap.select(mailbox)
+            if select_res[0] != "OK":
+                error_msg = f"Failed to select mailbox '{mailbox}'. Server response: {select_res}"
+                logger.error(error_msg)
+                raise Exception(error_msg)
 
             search_criteria = self._build_search_criteria(
                 before, since, subject, from_address=from_address, to_address=to_address
