@@ -2,7 +2,7 @@
 name = "mcp-email-server"
 version = "0.0.1"
 description = "IMAP and SMTP via MCP Server"
-authors = [{ name = "ai-zerolab", email = "jizhongsheng957@gmail.com" }]
+authors = [{ name = "Code-MonkeyZhang" }]
 readme = "README.md"
 keywords = ["MCP", "IMAP", "SMTP", "email"]
 requires-python = ">=3.10,<4.0"
@@ -34,9 +34,9 @@ dependencies = [
 mcp-email-server = "mcp_email_server.cli:app"
 
 [project.urls]
-Homepage = "https://ai-zerolab.github.io/mcp-email-server/"
-Repository = "https://github.com/ai-zerolab/mcp-email-server"
-Documentation = "https://ai-zerolab.github.io/mcp-email-server/"
+Homepage = "https://github.com/Code-MonkeyZhang/mcp-email-server"
+Repository = "https://github.com/Code-MonkeyZhang/mcp-email-server"
+Documentation = "https://github.com/Code-MonkeyZhang/mcp-email-server"
 
 [dependency-groups]
 dev = [
