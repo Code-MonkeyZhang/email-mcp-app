@@ -1,5 +1,5 @@
 [project]
-name = "mcp-email-server"
+name = "email-mcp-app"
 version = "0.0.1"
 description = "IMAP and SMTP via MCP Server"
 authors = [{ name = "Code-MonkeyZhang" }]
@@ -31,12 +31,12 @@ dependencies = [
 ]
 
 [project.scripts]
-mcp-email-server = "mcp_email_server.cli:app"
+email-mcp-app = "mcp_email_server.cli:app"
 
 [project.urls]
-Homepage = "https://github.com/Code-MonkeyZhang/mcp-email-server"
-Repository = "https://github.com/Code-MonkeyZhang/mcp-email-server"
-Documentation = "https://github.com/Code-MonkeyZhang/mcp-email-server"
+Homepage = "https://github.com/Code-MonkeyZhang/email-mcp-app"
+Repository = "https://github.com/Code-MonkeyZhang/email-mcp-app"
+Documentation = "https://github.com/Code-MonkeyZhang/email-mcp-app"
 
 [dependency-groups]
 dev = [
